@@ -1,15 +1,11 @@
 import './App.css'
+import { Login } from './pages/Login'
 
 function App() {
 
   return (
     <>
-      <h1>Hi, Gabo 🦊</h1>
-      <button>Click Here 👈🏻</button>
-      <form>
-        <input type='text' placeholder='User name'/>
-        <input type='password' placeholder='Password'/>
-      </form>
+      <Login/>
     </>
   )
 }
