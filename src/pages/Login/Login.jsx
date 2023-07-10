@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import TextField from "../../components/TextField";
+import PrimaryButton from "../../components/PrimaryButton";
 
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
             <h1>Hi, Gabo 🦊</h1>
             <TextField name='User' type='Text' placeholder='Enter your username' state={newUserName}/>
             <TextField name='Pass' type='Password' placeholder='Enter your password' state={newUserPassword}/>
-            <button onClick={printUser}/>
+            <PrimaryButton name='Login'/>
         </>
     );
 }
