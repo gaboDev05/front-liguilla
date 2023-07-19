@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { StyledTextField } from '../styled-components/inputs.style.components';
+import { StyledLabel } from '../styled-components/labels.style.components';
 
 // Componente 'common' encargado de ser un campo de escritura de texto
 const TextField = ({ name, type, placeholder, required, state }) => {
@@ -11,7 +13,8 @@ const TextField = ({ name, type, placeholder, required, state }) => {
 
     return ( 
         <>
-            <input 
+            <StyledLabel>{name}</StyledLabel>
+            <StyledTextField 
                 onChange={handlerChange}
                 required={required}
                 type={type} 

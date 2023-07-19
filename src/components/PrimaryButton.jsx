@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { StyledPrimaryButton } from '../styled-components/buttons.style.components';
 
 const PrimaryButton = ({ name }) => {
     return (  
         <>
-            <button>{name}</button>
+            <StyledPrimaryButton>{name}</StyledPrimaryButton>
         </>
     );
 }
@@ -11,6 +12,5 @@ const PrimaryButton = ({ name }) => {
 PrimaryButton.propTypes = {
     name: PropTypes.string.isRequired
 }
-
 
 export default PrimaryButton;
