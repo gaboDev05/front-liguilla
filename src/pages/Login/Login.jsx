@@ -9,9 +9,14 @@ const Login = () => {
     const [userName, newUserName] = useState('');
     const [userPassword, newUserPassword] = useState('');
 
-    const Login = (event) => {
+    const Login = async (event) => {
         event.preventDefault();
         console.log(`${userName} -> ${userPassword}`);
+        let { data, error } = await supabase.auth.signInWithPassword({
+            email: userName,
+            password: userPassword
+        })
+        console.log(data, error);
     }
 
     return ( 

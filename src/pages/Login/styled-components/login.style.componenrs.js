@@ -8,7 +8,7 @@ export const LayoutLogin = styled.div`
 `;
 
 export const ContainerLogin = styled.div`
-    background-color: #D5D5D5;
+    background-color: #F5F5F5;
     padding: 2rem;
     border-radius: 4px;
     width: 20%;
