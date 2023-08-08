@@ -14,3 +14,20 @@ export const ContainerLogin = styled.div`
     width: 20%;
     min-width: 280px;
 `;
+
+export const TitleLogin = styled.h1`
+    text-align: center;
+    margin-top: 0;
+`;
+
+export const TextSign = styled.p`
+    margin: 1rem 0 0 0;
+    font-size: 0.9rem;
+    font-weight: normal;
+`;
+
+export const SpanSign = styled.span`
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+`;
