@@ -1,14 +1,21 @@
-import { useState } from "react";
 import TextField from "../../../components/TextField"
 import PrimaryButton from "../../../components/PrimaryButton"
+import useFormFields from "../../../hooks/useFields";
 
 const FormSignIn = () => {
-    const [userName, newUserName] = useState('');
-    const [userPassword, newUserPassword] = useState('');
+    const initialState = {
+        username: '',
+        password: ''
+    }
 
-    const SignIn = async (event) => {
+    const [fields, handleFieldChange, getErrors, errors] = useFormFields(initialState);
+    //const [userName, newUserName] = useState('');
+    //const [userPassword, newUserPassword] = useState('');
+
+    const signIn = async (event) => {
         event.preventDefault();
-        console.log(`${userName} -> ${userPassword}`);
+        getErrors();
+        console.log(`${fields.username} -> ${fields.password}`);
         /*let { data, error } = await supabase.auth.signInWithPassword({
             email: userName,
             password: userPassword
@@ -20,9 +27,9 @@ const FormSignIn = () => {
 
     return ( 
         <>
-            <form onSubmit={SignIn}>
-                <TextField name='Username' type='Text' placeholder='Enter your username' state={newUserName}/>
-                <TextField name='Password' type='Password' placeholder='Enter your password' state={newUserPassword}/>
+            <form onSubmit={signIn}>
+                <TextField name='username' type='Text' placeholder='Enter your username' state={handleFieldChange}/>
+                <TextField name='password' type='Password' placeholder='Enter your password' state={handleFieldChange}/>
                 <PrimaryButton name='Sign In'/>
             </form>
         </> 

@@ -12,4 +12,8 @@ export const StyledTextField = styled.input`
     box-sizing: border-box;
     color: black;
     border: 2px solid transparent;
+
+    ${props => props.focused && `
+        color: red;
+    `}
 `;

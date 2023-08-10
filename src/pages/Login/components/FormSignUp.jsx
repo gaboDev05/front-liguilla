@@ -1,15 +1,24 @@
-import { useState } from "react";
 import TextField from "../../../components/TextField"
 import PrimaryButton from "../../../components/PrimaryButton"
+import useFormFields from "../../../hooks/useFields";
 
 const FormSignUp = () => {
-    const [userName, newUserName] = useState('');
-    const [userPassword, newUserPassword] = useState('');
-    const [userEmail, newUserEmail] = useState('');
+    const initialState = {
+        username: '',
+        password: '',
+        email: ''
+    }
 
-    const SignUp = async (event) => {
+    const [fields, handleFieldChange, getErrors, errors] = useFormFields(initialState);
+    //const [userName, newUserName] = useState('');
+    //const [userPassword, newUserPassword] = useState('');
+    //const [userEmail, newUserEmail] = useState('');
+
+
+    const signUp = async (event) => {
         event.preventDefault();
-        console.log(`${userName} -> ${userEmail} -> ${userPassword}`);
+        getErrors();
+        console.log(`${fields.username} -> ${fields.password} -> ${fields.email}`);
         /*let { data, error } = await supabase.auth.signInWithPassword({
             email: userName,
             password: userPassword
@@ -19,12 +28,13 @@ const FormSignUp = () => {
         //console.log(id)*/
     }
 
+
     return ( 
         <>
-            <form onSubmit={SignUp}>
-                <TextField name='Username' type='Text' placeholder='Enter your username' state={newUserName}/>
-                <TextField name='Email' type='Text' placeholder='Enter your email' state={newUserEmail}/>
-                <TextField name='Password' type='Password' placeholder='Enter your password' state={newUserPassword}/>
+            <form onSubmit={signUp}>
+                <TextField name='username' type='Text' placeholder='Enter your username' state={handleFieldChange}/>
+                <TextField name='email' type='Text' placeholder='Enter your email' state={handleFieldChange}/>
+                <TextField name='password' type='Password' placeholder='Enter your password' state={handleFieldChange}/>
                 <PrimaryButton name='Sign Up'/>
             </form>
         </> 
