@@ -3,19 +3,29 @@ import { StyledTextField } from '../styled-components/inputs.style.components';
 import { StyledLabel } from '../styled-components/labels.style.components';
 
 // Componente 'common' encargado de ser un campo de escritura de texto
-const TextField = ({ name, type, placeholder, required, state }) => {
+const TextField = ( props ) => {
+    const { name, label, type, required, placeholder, state, validation} = props;
 
     // Metodo que se ejecuta cada vez que cambia el valor del input debido al onChnage
     const handlerChange = (event) => { // Recibe un evento por parametro
         event.preventDefault(); // Evita el comportamiento por defecto del input
         //state(event.target.value) // Funcion que se le pasa como prop que es la responsable de cambiar el estado en el componente padre
-        state(event);
+        
+        // Objeto para pasar al nodo padre de este componente
+        const newObj = {
+            [name]: {
+                value: event.target.value, 
+                validation
+            }
+        }
+        
+        state(newObj);
     }
 
 
     return ( 
         <>
-            <StyledLabel>{name}</StyledLabel>
+            <StyledLabel>{label}</StyledLabel>
             <StyledTextField 
                 id={name}
                 name={name} 
@@ -33,8 +43,10 @@ TextField.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     type: PropTypes.string,
+    label: PropTypes.string,
     placeholder: PropTypes.string,
     required: PropTypes.bool,
+    validation: PropTypes.object,
     state: PropTypes.func.isRequired,
 }
 

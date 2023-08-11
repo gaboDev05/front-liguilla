@@ -1,11 +1,19 @@
 import TextField from "../../../components/TextField"
 import PrimaryButton from "../../../components/PrimaryButton"
-import useFormFields from "../../../hooks/useFields";
+import useFormFields from "../../../hooks/useFields"
+import { username_validation, password_validation } from  "../../../utilities/inputValidations"
 
 const FormSignIn = () => {
+    
     const initialState = {
-        username: '',
-        password: ''
+        username: {
+            value: '', 
+            validation: {}
+        },
+        password: {
+            value: '', 
+            validation: {}
+        }
     }
 
     const [fields, handleFieldChange, getErrors, errors] = useFormFields(initialState);
@@ -15,7 +23,7 @@ const FormSignIn = () => {
     const signIn = async (event) => {
         event.preventDefault();
         getErrors();
-        console.log(`${fields.username} -> ${fields.password}`);
+        console.log(`${fields.username.value} -> ${fields.password.value}`);
         /*let { data, error } = await supabase.auth.signInWithPassword({
             email: userName,
             password: userPassword
@@ -28,8 +36,8 @@ const FormSignIn = () => {
     return ( 
         <>
             <form onSubmit={signIn}>
-                <TextField name='username' type='Text' placeholder='Enter your username' state={handleFieldChange}/>
-                <TextField name='password' type='Password' placeholder='Enter your password' state={handleFieldChange}/>
+                <TextField { ...username_validation } state={handleFieldChange}/>
+                <TextField { ...password_validation } state={handleFieldChange}/>
                 <PrimaryButton name='Sign In'/>
             </form>
         </> 
