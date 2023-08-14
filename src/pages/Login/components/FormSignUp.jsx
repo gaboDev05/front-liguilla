@@ -1,42 +1,25 @@
 import TextField from "../../../components/TextField"
 import PrimaryButton from "../../../components/PrimaryButton"
-import useFormFields from "../../../hooks/useFields";
+import { FormProvider, useForm } from "react-hook-form"
+import { username_validation, password_validation, email_validation } from  "../../../utilities/inputValidations"
 
 const FormSignUp = () => {
-    const initialState = {
-        username: '',
-        password: '',
-        email: ''
-    }
+    const methods = useForm();
 
-    const [fields, handleFieldChange, getErrors, errors] = useFormFields(initialState);
-    //const [userName, newUserName] = useState('');
-    //const [userPassword, newUserPassword] = useState('');
-    //const [userEmail, newUserEmail] = useState('');
-
-
-    const signUp = async (event) => {
-        event.preventDefault();
-        getErrors();
-        console.log(`${fields.username} -> ${fields.password} -> ${fields.email}`);
-        /*let { data, error } = await supabase.auth.signInWithPassword({
-            email: userName,
-            password: userPassword
-        })
-        //console.log(data, error);
-        const { id } = data.user;
-        //console.log(id)*/
-    }
-
+    const signUp = methods.handleSubmit(data => {
+        console.log(data);
+    });
 
     return ( 
         <>
-            <form onSubmit={signUp}>
-                <TextField name='username' type='Text' placeholder='Enter your username' state={handleFieldChange}/>
-                <TextField name='email' type='Text' placeholder='Enter your email' state={handleFieldChange}/>
-                <TextField name='password' type='Password' placeholder='Enter your password' state={handleFieldChange}/>
-                <PrimaryButton name='Sign Up'/>
-            </form>
+            <FormProvider {...methods}>
+                <form onSubmit={e => e.preventDefault()} noValidate autoComplete="off">
+                    <TextField {...username_validation}/>
+                    <TextField {...email_validation}/>
+                    <TextField {...password_validation}/>
+                    <PrimaryButton name='Sign Up' onClick={signUp}/>
+                </form>
+            </FormProvider>
         </> 
     );
 }

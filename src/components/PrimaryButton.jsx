@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
 import { StyledPrimaryButton } from '../styled-components/buttons.style.components';
 
-const PrimaryButton = ({ name }) => {
+const PrimaryButton = ({ name, onClick }) => {
     return (  
         <>
-            <StyledPrimaryButton>{name}</StyledPrimaryButton>
+            <StyledPrimaryButton onClick={onClick}>{name}</StyledPrimaryButton>
         </>
     );
 }
 
 PrimaryButton.propTypes = {
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    onClick: PropTypes.func
 }
 
 export default PrimaryButton;

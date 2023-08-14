@@ -5,7 +5,6 @@ export const username_validation = {
     name: 'username',
     label: 'Username',
     type: 'text',
-    valueField: '',
     multiType : false,
     placeholder: 'Write your username ...',
     validation: {
@@ -18,13 +17,11 @@ export const username_validation = {
         message: '30 characters max',
       },
     },
-    state: () => {},
 }
   
 export const desc_validation = {
     name: 'description',
-    label: 'description',
-    valueField: '',
+    label: 'Description',
     multiline: true,
     placeholder: 'write description ...',
     validation: {
@@ -43,7 +40,6 @@ export const password_validation = {
     name: 'password',
     label: 'Password',
     type: 'password',
-    valueField: '',
     multiType : true,
     placeholder: 'Type password ...',
     validation: {
@@ -60,9 +56,8 @@ export const password_validation = {
   
 export const num_validation = {
     name: 'num',
-    label: 'number',
+    label: 'Number',
     type: 'number',
-    valueField: '',
     multiType : false,
     placeholder: 'write a random number',
     validation: {
@@ -77,7 +72,6 @@ export const email_validation = {
     name: 'email',
     label: 'Email address',
     type: 'email',
-    valueField: '',
     multiType : false,
     placeholder: 'Write a random email address',
     validation: {
@@ -91,5 +85,4 @@ export const email_validation = {
         message: 'Invalid',
       },
     },
-    state: () => {},
 }

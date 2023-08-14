@@ -1,4 +1,4 @@
-import { ContainerLogin, LayoutLogin, TitleLogin, TextSign, SpanSign} from "./styled-components/login.style.componenrs";
+import { ContainerLogin, LayoutLogin, TitleLogin, TextSign, SpanSign } from "./styled-components/login.style.componenrs";
 import FormSignIn from "./components/FormSignIn";
 import { useState } from "react";
 import FormSignUp from "./components/FormSignUp";
@@ -21,7 +21,7 @@ const Login = () => {
                         <>
                             <FormSignUp></FormSignUp>
                             <TextSign>Ya estas registrado? <SpanSign onClick={() => setAuthMode('signin')}>Inicia Sesion</SpanSign></TextSign>
-                        </> }
+                        </>}
                 </ContainerLogin>
             </LayoutLogin>
         </>
