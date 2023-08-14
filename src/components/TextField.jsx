@@ -4,22 +4,14 @@ import { StyledLabel } from '../styled-components/labels.style.components';
 
 // Componente 'common' encargado de ser un campo de escritura de texto
 const TextField = ( props ) => {
-    const { name, label, type, required, placeholder, state, validation} = props;
+    const { name, label, type, required, placeholder, state } = props;
 
     // Metodo que se ejecuta cada vez que cambia el valor del input debido al onChnage
     const handlerChange = (event) => { // Recibe un evento por parametro
         event.preventDefault(); // Evita el comportamiento por defecto del input
         //state(event.target.value) // Funcion que se le pasa como prop que es la responsable de cambiar el estado en el componente padre
         
-        // Objeto para pasar al nodo padre de este componente
-        const newObj = {
-            [name]: {
-                value: event.target.value, 
-                validation
-            }
-        }
-        
-        state(newObj);
+        state( {...props, value: event.target.value} );
     }
 
 

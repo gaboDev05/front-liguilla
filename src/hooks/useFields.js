@@ -12,11 +12,13 @@ const useFormFields = (initialState) => {
         // lo que significa que no se garantiza que se ejecuten de inmediato. Si intentas actualizar el estado dentro de un bucle, 
         // es posible que te encuentres con problemas de concurrencia, ya que cada llamada podría estar operando en una versión desactualizada del estado.
         Object.keys(fields).forEach((field) => {
+            console.log(fields[field])
             const error = `The ${field} is `;
-            const { value, validation } = fields[field]
-            if (validation?.required && !value.trim()){
-                console.log(error + validation.message)
-                newErrors[field] = error + validation.message;
+            const { valueField, validation } = fields[field]
+            if (validation?.required.value && !valueField.trim()){
+                newErrors[field] = error + validation?.required.message;
+            } else {
+                delete newErrors[field];
             }
             /*if (!value.trim()) {
                 newErrors[field] = `The ${field} is required`;

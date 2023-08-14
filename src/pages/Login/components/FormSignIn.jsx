@@ -6,14 +6,8 @@ import { username_validation, password_validation } from  "../../../utilities/in
 const FormSignIn = () => {
     
     const initialState = {
-        username: {
-            value: '', 
-            validation: {}
-        },
-        password: {
-            value: '', 
-            validation: {}
-        }
+        username: username_validation,
+        password: password_validation
     }
 
     const [fields, handleFieldChange, getErrors, errors] = useFormFields(initialState);
