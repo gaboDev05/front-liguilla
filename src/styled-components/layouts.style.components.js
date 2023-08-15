@@ -11,4 +11,5 @@ export const TextFieldLayout = styled.div`
 export const ContainerLabelTextField = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;

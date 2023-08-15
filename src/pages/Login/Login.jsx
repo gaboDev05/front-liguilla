@@ -4,6 +4,7 @@ import { useState } from "react";
 import FormSignUp from "./components/FormSignUp";
 
 
+
 const Login = () => {
     const [authMode, setAuthMode] = useState('signin')
     
@@ -11,16 +12,15 @@ const Login = () => {
         <>
             <LayoutLogin>
                 <ContainerLogin>
-                    <TitleLogin>Bienvenido ⚽️🥅</TitleLogin>
-                    
+                    <TitleLogin>Welcome!!</TitleLogin>
                     { authMode === 'signin' ? 
                         <>
                             <FormSignIn></FormSignIn>
-                            <TextSign>Eres nuevo? <SpanSign onClick={() => setAuthMode('signup')}>Registrate</SpanSign></TextSign>
+                            <TextSign>You are new? <SpanSign onClick={() => setAuthMode('signup')}>Sign up</SpanSign></TextSign>
                         </> :
                         <>
                             <FormSignUp></FormSignUp>
-                            <TextSign>Ya estas registrado? <SpanSign onClick={() => setAuthMode('signin')}>Inicia Sesion</SpanSign></TextSign>
+                            <TextSign>Are you already registered? <SpanSign onClick={() => setAuthMode('signin')}>Sign in</SpanSign></TextSign>
                         </>}
                 </ContainerLogin>
             </LayoutLogin>

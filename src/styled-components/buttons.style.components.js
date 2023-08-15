@@ -6,7 +6,7 @@ export const StyledPrimaryButton = styled.button`
     width: 100%; // Se utiliza para establecer el ancho del área de contenido de un elemento. Esta "área de contenido" es la porción dentro del padding, borde y margen de un elemento (el modelo de caja)
     font-size: 1.1rem; // Se utiliza para determinar el tamano de la fuente
     font-weight: bold;
-    background: #ADFF01; // Se utiliza para definir el color de fondo del elemento
+    background: #FEC887; // Se utiliza para definir el color de fondo del elemento
     // Se utiliza para dibujar una línea alrededor de un elemento, fuera del bordepara hacer que el elemento se destaque. 
     // A diferencia de border, el outline se dibuja fuera del borde del elemento y puede superponerse con otros contenidos
     outline: none; 
