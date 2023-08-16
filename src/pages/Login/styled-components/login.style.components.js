@@ -18,7 +18,6 @@ export const Background = styled.div`
     position: relative;
 `;
 
-
 export const ContainerLogin = styled.div`
     background-color: #FFFFFF;
     padding: 2rem;

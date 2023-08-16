@@ -1,4 +1,4 @@
-import { ContainerLogin, LayoutLogin, TitleLogin, TextSign, SpanSign, Background } from "./styled-components/login.style.componenrs";
+import { ContainerLogin, LayoutLogin, TitleLogin, TextSign, SpanSign, Background } from "./styled-components/login.style.components";
 import FormSignIn from "./components/FormSignIn";
 import { useState } from "react";
 import FormSignUp from "./components/FormSignUp";
