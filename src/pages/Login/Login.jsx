@@ -1,4 +1,4 @@
-import { ContainerLogin, LayoutLogin, TitleLogin, TextSign, SpanSign } from "./styled-components/login.style.componenrs";
+import { ContainerLogin, LayoutLogin, TitleLogin, TextSign, SpanSign, Background } from "./styled-components/login.style.componenrs";
 import FormSignIn from "./components/FormSignIn";
 import { useState } from "react";
 import FormSignUp from "./components/FormSignUp";
@@ -11,6 +11,7 @@ const Login = () => {
     return ( 
         <>
             <LayoutLogin>
+                <Background></Background>
                 <ContainerLogin>
                     <TitleLogin>Welcome!!</TitleLogin>
                     { authMode === 'signin' ? 

@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import backgroundImage  from "../../../assets/img/Fondo.svg"
 
 export const LayoutLogin = styled.div`
     display: flex;
@@ -6,6 +7,17 @@ export const LayoutLogin = styled.div`
     justify-content: center;
     min-height: 100vh;
 `;
+
+export const Background = styled.div`
+    width: 100%;
+    height: 100vh;
+    background-image: url(${backgroundImage});
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+`;
+
 
 export const ContainerLogin = styled.div`
     background-color: #FFFFFF;
