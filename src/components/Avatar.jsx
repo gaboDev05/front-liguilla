@@ -1,11 +1,11 @@
-import { StyledAvatar, StyledImagen } from "../styled-components/avatar.style.components";
+import { StyledAvatar, StyledBadge, StyledImagen, StyledSpan } from "../styled-components/avatar.style.components";
 import PropTypes from 'prop-types';
 
-const Avatar = ({ isActive, name, src, width, height }) => {
+const Avatar = ({ name, src, width, height }) => {
     return ( 
         <>
             <StyledAvatar width={width} height={height}>
-                <StyledImagen/>
+                {src ? <StyledImagen src={src}/> : <StyledSpan>{name[0].toUpperCase()}</StyledSpan>}
             </StyledAvatar>
         </> 
     );
@@ -21,8 +21,8 @@ Avatar.propTypes = {
 
 // Completar
 Avatar.defaultProps = {
-    width: '5rem',
-    height: '5rem'
+    width: '2.5rem',
+    height: '2.5rem'
 }
  
 export default Avatar;

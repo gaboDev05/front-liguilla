@@ -9,7 +9,7 @@ const Dashboard = () => {
                 <ContainerLeague>
                     <h1>Hola</h1>
                 </ContainerLeague>
-                <Avatar isActive/>
+                <Avatar name={'hola'}/>
             </LayoutDashboard>
         </> 
     );
