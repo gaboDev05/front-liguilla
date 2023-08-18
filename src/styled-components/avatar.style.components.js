@@ -7,28 +7,34 @@ const sharedStyles = css`
   border-radius: 50%;
 `;
 
-export const StyledAvatar = styled.div`
-    //border: 3px #FEC887 solid;
-    border-radius: 50%;
-    position: relative;
-    height: ${(props) => props.height};
-    width: ${(props) => props.width};
+const BackgroundStyles = css`
+  background: #FEC887;
+`;
 
-    &&:hover {
-        cursor: pointer;
-    }
+export const StyledAvatar = styled.div`
+  border: 3px #FEC887 solid;
+  display: block;
+  position: relative;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  border-radius: 50%;
+
+  ${(props) => props.$isBackground && BackgroundStyles}
+  &&:hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledImagen = styled.img`
-    ${sharedStyles}
-    object-fit: cover;
+  ${sharedStyles}
+  object-fit: ${(props) => props.$isBackground ? 'contain' : 'cover'};
 `;
 
 export const StyledSpan = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   background-color: #FEC887;
   ${sharedStyles}
@@ -45,5 +51,3 @@ export const StyledBadge = styled.span`
   border: 4px solid #121212;
   background: #4ded30;
 `;
-
-

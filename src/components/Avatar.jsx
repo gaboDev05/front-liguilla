@@ -1,18 +1,18 @@
 import { StyledAvatar, StyledBadge, StyledImagen, StyledSpan } from "../styled-components/avatar.style.components";
 import PropTypes from 'prop-types';
 
-const Avatar = ({ name, src, width, height }) => {
+const Avatar = ({ isBackground, name, src, width, height }) => {
     return ( 
         <>
-            <StyledAvatar width={width} height={height}>
-                {src ? <StyledImagen src={src}/> : <StyledSpan>{name[0].toUpperCase()}</StyledSpan>}
+            <StyledAvatar $isBackground={isBackground} width={width} height={height}>
+                {src ? <StyledImagen $isBackground={isBackground} src={src}/> : <StyledSpan>{name[0].toUpperCase()}</StyledSpan>}
             </StyledAvatar>
         </> 
     );
 }
 
 Avatar.propTypes = {
-    isActive: PropTypes.bool,
+    isBackground: PropTypes.bool,
     name: PropTypes.string,
     src: PropTypes.string,
     width: PropTypes.string,
