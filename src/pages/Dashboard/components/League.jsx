@@ -8,7 +8,7 @@ const League = ({ src, name }) => {
     return ( 
         <>
             <WrapperLeague>
-                <Avatar src={Team} isBackground/>
+                <Avatar isBackground src={Team} width={'1.5rem'} height={'1.5rem'}/>
                 <NameLeague>{name}</NameLeague>
             </WrapperLeague>
         </>
