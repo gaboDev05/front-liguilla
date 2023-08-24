@@ -1,45 +1,42 @@
 import { WrapperLeague } from "../styled-components/league.style.components";
-import { StyleTablePosition, StyleRowHeaderTable, StyleHeaderTable, WrapperRowTable, StyleRowItems, StyleCellTable } from "../styled-components/table.style.components";
+import { StyleTablePosition, StyleRowHeaderTable, StyleHeaderTable, WrapperRowTable, 
+    StyleRowItems, StyleCellTable, RightGroup, LeftGroup} from "../styled-components/table.style.components";
 
 const TablePosition = ({ data }) => {
     return ( 
         <>
             <StyleTablePosition>
                 <StyleRowHeaderTable>
-                    <tr>
                         <WrapperRowTable>
-                            <div>
+                            <LeftGroup>
                                 <StyleHeaderTable>#</StyleHeaderTable>
                                 <StyleHeaderTable>Team</StyleHeaderTable>
-                            </div>
-                            <div>
+                            </LeftGroup>
+                            <RightGroup>
                                 <StyleHeaderTable>P</StyleHeaderTable>
                                 <StyleHeaderTable>W</StyleHeaderTable>
                                 <StyleHeaderTable>D</StyleHeaderTable>
                                 <StyleHeaderTable>L</StyleHeaderTable>
                                 <StyleHeaderTable>Goals</StyleHeaderTable>
                                 <StyleHeaderTable>PTS</StyleHeaderTable>
-                            </div>
+                            </RightGroup>
                         </WrapperRowTable>
-                    </tr>
                 </StyleRowHeaderTable>
                 <tbody>
                     {data.map((elem) => (
                         <StyleRowItems key={elem.id}>
-                            <WrapperRowTable>
-                                <div>
-                                    <StyleCellTable>{1}</StyleCellTable>
-                                    <StyleCellTable>{elem.team}</StyleCellTable>
-                                </div>
-                                <div>
-                                    <StyleCellTable>{elem.win + elem.draw + elem.lose}</StyleCellTable>
-                                    <StyleCellTable>{elem.win}</StyleCellTable>
-                                    <StyleCellTable>{elem.draw}</StyleCellTable>
-                                    <StyleCellTable>{elem.lose}</StyleCellTable>
-                                    <StyleCellTable>{`${elem.goalsFor}:${elem.goalsAgainst}`}</StyleCellTable>
-                                    <StyleCellTable>{elem.points}</StyleCellTable>
-                                </div>
-                            </WrapperRowTable>
+                            <RightGroup>
+                                <StyleCellTable>{1}</StyleCellTable>
+                                <StyleCellTable>{elem.team}</StyleCellTable>
+                            </RightGroup>
+                            <LeftGroup>
+                                <StyleCellTable>{elem.win + elem.draw + elem.lose}</StyleCellTable>
+                                <StyleCellTable>{elem.win}</StyleCellTable>
+                                <StyleCellTable>{elem.draw}</StyleCellTable>
+                                <StyleCellTable>{elem.lose}</StyleCellTable>
+                                <StyleCellTable>{`${elem.goalsFor}:${elem.goalsAgainst}`}</StyleCellTable>
+                                <StyleCellTable>{elem.points}</StyleCellTable>
+                            </LeftGroup>
                         </StyleRowItems>
                     ))}
                 </tbody>

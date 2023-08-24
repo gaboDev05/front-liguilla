@@ -18,29 +18,43 @@ export const StyleRowHeaderTable = styled.thead`
     border-radius: 4px;
 `;
 
-export const WrapperRowTable = styled.div`
+export const WrapperRowTable = styled.tr`
     display: flex;
     justify-content: space-between;
 `;
 
-export const StyleHeaderTable = styled.th`
+export const StyleHeaderTable = styled.div`
     background-color: #FEC887;
     padding: 12px;
     font-weight: 500;
     font-size: 14px;
     color: black;
+    margin: 0;
     vertical-align: top;
     text-align: left;
 `;
 
+export const LeftGroup = styled.th`
+    display: flex;
+    justify-content: flex-start;
+`;
+
+export const RightGroup = styled.th`
+    display: flex;
+    justify-content: flex-end;
+`;
+
+
 export const StyleRowItems = styled.tr`
+    display: flex;
+    justify-content: space-between;
     cursor: auto;
 `;
 
-export const StyleCellTable = styled.td`
-    padding: 14px;
+export const StyleCellTable = styled.div`
+    padding: 12px;
     font-size: 14px;
+    font-weight: normal;
     color: black;
-    vertical-align: top;
-    text-align: left;
+    text-align: center;
 `;
