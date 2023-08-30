@@ -1,44 +1,40 @@
-import { WrapperLeague } from "../styled-components/league.style.components";
-import { StyleTablePosition, StyleRowHeaderTable, StyleHeaderTable, WrapperRowTable, 
-    StyleRowItems, StyleCellTable, RightGroup, LeftGroup} from "../styled-components/table.style.components";
+import { StyleRowHeaderTable, StyleTablePosition, StyleHeaderTable, StyleCellTable, StyleHeaderTeam, StyleCellTeam, WrapperTitleTable, StyleTitleTable } from "../styled-components/table.style.components";
 
 const TablePosition = ({ data }) => {
     return ( 
         <>
+            <WrapperTitleTable>
+                <StyleTitleTable>Standings</StyleTitleTable>
+            </WrapperTitleTable>
             <StyleTablePosition>
                 <StyleRowHeaderTable>
-                        <WrapperRowTable>
-                            <LeftGroup>
-                                <StyleHeaderTable>#</StyleHeaderTable>
-                                <StyleHeaderTable>Team</StyleHeaderTable>
-                            </LeftGroup>
-                            <RightGroup>
-                                <StyleHeaderTable>P</StyleHeaderTable>
-                                <StyleHeaderTable>W</StyleHeaderTable>
-                                <StyleHeaderTable>D</StyleHeaderTable>
-                                <StyleHeaderTable>L</StyleHeaderTable>
-                                <StyleHeaderTable>Goals</StyleHeaderTable>
-                                <StyleHeaderTable>PTS</StyleHeaderTable>
-                            </RightGroup>
-                        </WrapperRowTable>
+                    <tr>
+                        <StyleHeaderTable>#</StyleHeaderTable>
+                        <StyleHeaderTeam><strong>Team</strong></StyleHeaderTeam>
+                        <StyleHeaderTable><abbr title="Win"></abbr>W</StyleHeaderTable>
+                        <StyleHeaderTable><abbr title="Draw"></abbr>D</StyleHeaderTable>
+                        <StyleHeaderTable><abbr title="Lose"></abbr>L</StyleHeaderTable>
+                        <StyleHeaderTable><abbr title="Goals"></abbr>Goals</StyleHeaderTable>
+                        <StyleHeaderTable><abbr title="Points"></abbr>PTS</StyleHeaderTable>
+                    </tr>
                 </StyleRowHeaderTable>
                 <tbody>
-                    {data.map((elem) => (
-                        <StyleRowItems key={elem.id}>
-                            <RightGroup>
-                                <StyleCellTable>{1}</StyleCellTable>
-                                <StyleCellTable>{elem.team}</StyleCellTable>
-                            </RightGroup>
-                            <LeftGroup>
-                                <StyleCellTable>{elem.win + elem.draw + elem.lose}</StyleCellTable>
+                    {
+                        data.map((elem) => (
+                            <tr key={elem.id}>
+                                <StyleCellTable>
+                                    <span>{elem.id}</span>
+                                </StyleCellTable>
+                                <StyleCellTeam>{elem.team}</StyleCellTeam>
                                 <StyleCellTable>{elem.win}</StyleCellTable>
                                 <StyleCellTable>{elem.draw}</StyleCellTable>
                                 <StyleCellTable>{elem.lose}</StyleCellTable>
                                 <StyleCellTable>{`${elem.goalsFor}:${elem.goalsAgainst}`}</StyleCellTable>
                                 <StyleCellTable>{elem.points}</StyleCellTable>
-                            </LeftGroup>
-                        </StyleRowItems>
-                    ))}
+                            </tr>
+                        ))
+                    }
+                    
                 </tbody>
             </StyleTablePosition>
         </>

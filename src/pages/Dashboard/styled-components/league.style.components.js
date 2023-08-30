@@ -5,6 +5,8 @@ export const ContainerLeague = styled.div`
     background-color: #FFFFFF;
     border-radius: 4px;
     min-width: 280px;
+    align-self: start; /* Ajusta la alineación vertical del contenedor */
+
 `;
 
 export const StyleTitleLeague = styled.h1`
