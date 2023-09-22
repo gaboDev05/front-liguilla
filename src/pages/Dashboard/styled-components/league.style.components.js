@@ -2,20 +2,19 @@ import styled from "styled-components";
 
 
 export const ContainerLeague = styled.div`
-    background-color: #FFFFFF;
+    background-color: ${({ theme }) => theme.background_container};
     border-radius: 4px;
     min-width: 280px;
-    align-self: start; /* Ajusta la alineación vertical del contenedor */
-
+    align-self: start;
 `;
 
 export const StyleTitleLeague = styled.h1`
     font-size: 1.2rem;
     margin: 0 0 0 1rem;
+    color: ${({ theme }) => theme.text_primary};
 `;
 
 export const WrapperTitleLeague = styled.div`
-    background-color: #FEC887;
     padding: 0.5rem;
     border-radius: 4px 4px 0 0;
 `;
@@ -39,4 +38,5 @@ export const NameLeague = styled.p`
     font-size: 1rem;
     font-weight: bolder;
     margin: 0 0 0 1.5rem;
+    color: ${({ theme }) => theme.text_primary};
 `;
